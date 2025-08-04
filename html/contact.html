@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Premium | EduPlus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-circle"></div>
+        <div class="loader-line-mask">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles-js"></div>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+        <!-- Glassmorphism Panel -->
+        <div class="glass-panel animate__animated animate__fadeIn">
+            <div class="panel-header">
+                <h1 class="gradient-text">Nous contacter</h1>
+                <div class="divider"></div>
+                <p>Une question ? Un projet ? Écrivez-nous</p>
+            </div>
+
+            <!-- Animated Tabs -->
+            <div class="contact-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="form"><i class="fas fa-envelope"></i> Message</button>
+                    <button class="tab-btn" data-tab="info"><i class="fas fa-info-circle"></i> Infos</button>
+                    <button class="tab-btn" data-tab="faq"><i class="fas fa-question"></i> FAQ</button>
+                </div>
+
+                <!-- Form Tab -->
+ <div class="tab-content active" id="form-tab">
+    <form id="premiumContactForm" action="../PHPMailer/sendmail.php" method="POST">
+        <div class="form-group floating">
+            <input type="text" id="name" name="fullname" required>
+            <label for="name">Nom complet</label>
+            <div class="underline"></div>
+            <i class="fas fa-user"></i>
+        </div>
+
+        <div class="form-group floating">
+            <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+            <div class="underline"></div>
+            <i class="fas fa-at"></i>
+        </div>
+
+        <div class="form-group floating">
+            <select id="subject" name="subject" required>
+                <option value=""></option>
+                <option value="Support technique">Support technique</option>
+                <option value="Partenariat">Partenariat</option>
+            </select>
+            <label for="subject">Sujet</label>
+            <div class="underline"></div>
+            <i class="fas fa-tag"></i>
+        </div>
+
+        <div class="form-group floating">
+            <textarea id="message" name="message" required></textarea>
+            <label for="message">Message</label>
+            <div class="underline"></div>
+        </div>
+
+        <button type="submit" class="submit-btn magnetic">
+            <span>Envoyer</span>
+            <div class="hover-effect"></div>
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </form>
+</div>
+
+
+                <!-- Info Tab -->
+                <div class="tab-content" id="info-tab">
+                    <div class="info-grid">
+                        <div class="info-card hover-3d">
+                            <div class="card-icon pulse">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Notre siège</h3>
+                            <p>12 Rue de l'Éducation<br>Saint Louis, Sénégal</p>
+                        </div>
+
+                        <div class="info-card hover-3d">
+                            <div class="card-icon pulse">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3>Téléphone</h3>
+                            <p>+221 76 440 14 41</p>
+                        </div>
+
+                        <div class="info-card hover-3d">
+                            <div class="card-icon pulse">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p>contact@eduplus.sn</p>
+                        </div>
+
+                        <div class="social-card">
+                            <h3>Réseaux sociaux</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-icon" data-tooltip="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon" data-tooltip="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-icon" data-tooltip="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Tab -->
+                <div class="tab-content" id="faq-tab">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h4>Comment devenir partenaire ?</h4>
+                                <div class="accordion-icon">
+                                    <div class="plus"></div>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Contactez-nous via le formulaire en sélectionnant "Partenariat". Notre équipe vous recontactera sous 48h.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Plus d'items FAQ... -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Contact Bubble -->
+        <div class="contact-bubble">
+            <div class="bubble-icon">
+                <i class="fas fa-comment-dots"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="contact.js"></script>
+    <script src="send.js"></script>
+</body>
+</html>

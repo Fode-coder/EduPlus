@@ -1,0 +1,271 @@
+/* ====================== */
+/* SECTION FASCICULES PREMIUM */
+/* ====================== */
+
+#fascicules {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+/* En-tête de section */
+#fascicules .section-header {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+#fascicules .section-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#fascicules .section-header p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Barre de filtres */
+#fascicules .filters-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 206, 201, 0.1));
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+#fascicules .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#fascicules .filter-group label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+#fascicules .styled-select {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1rem;
+    color: var(--dark);
+    cursor: pointer;
+    transition: var(--transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    min-width: 200px;
+}
+
+#fascicules .styled-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+/* Grille de fascicules */
+.fascicules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+/* Carte de fascicule */
+.fascicule-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+}
+
+.fascicule-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.fascicule-thumbnail {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.fascicule-card:hover .fascicule-thumbnail {
+    transform: scale(1.03);
+}
+
+.fascicule-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-sm);
+}
+
+.fascicule-details {
+    padding: 1.8rem;
+}
+
+.fascicule-header {
+    margin-bottom: 1.2rem;
+}
+
+.fascicule-header h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.fascicule-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.fascicule-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fascicule-description {
+    color: var(--gray);
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    --webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fascicule-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #FFC107;
+    font-weight: 600;
+}
+
+.download-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+/* Mode sombre */
+body.dark-mode .fascicule-card {
+    background: #16213E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .fascicule-header h3 {
+    color: #fff;
+}
+
+body.dark-mode .fascicule-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .styled-select {
+    background-color: #1A1A2E;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .fascicules-grid {
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    #fascicules .filters-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .fascicules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fascicule-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #fascicules .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .fascicule-thumbnail {
+        height: 180px;
+    }
+    
+    .fascicule-details {
+        padding: 1.5rem;
+    }
+    
+    .download-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,524 @@
+/* SYSTEME DE VARIABLES AVANCEES */
+:root {
+  /* Couleurs principales */
+  --eduplus-primary: #2C3E50;
+  --eduplus-secondary: #E74C3C;
+  --eduplus-accent: #3498DB;
+  --eduplus-light: #ECF0F1;
+  --eduplus-dark: #1A252F;
+  
+  /* Degradés animés */
+  --gradient-primary: linear-gradient(135deg, var(--eduplus-primary) 0%, #34495E 100%);
+  --gradient-accent: linear-gradient(90deg, var(--eduplus-accent) 0%, #2980B9 100%);
+  
+  /* Effets d'ombre */
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
+  --shadow-md: 0 5px 20px rgba(0,0,0,0.2);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.3);
+  
+  /* Paramètres d'animation */
+  --transition-base: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* RESET ET BASE STYLES */
+.footer * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-primary);
+  color: var(--eduplus-light);
+  padding: 5rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  z-index: 1;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.15) 0%, transparent 40%);
+  z-index: -1;
+  animation: gradientPulse 15s ease infinite alternate;
+}
+
+/* LAYOUT CONTAINER */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* SECTION GENERIQUE */
+.footer-section {
+  position: relative;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-base);
+  overflow: hidden;
+}
+
+.footer-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.footer-section:hover::after {
+  transform: scaleX(1);
+}
+
+/* TITRES DE SECTION */
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--eduplus-accent);
+  border-radius: 3px;
+  animation: underlineGrow 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* SECTION A PROPOS */
+.about-content {
+  position: relative;
+  padding-right: 1rem;
+}
+
+.about-content::first-letter {
+  font-size: 2.5rem;
+  color: var(--eduplus-accent);
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+/* LISTE D'INFORMATIONS */
+.info-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.info-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  transition: var(--transition-base);
+}
+
+.info-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 12px;
+  height: 12px;
+  background: var(--eduplus-accent);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: var(--transition-bounce);
+}
+
+.info-list li:hover {
+  transform: translateX(10px);
+}
+
+.info-list li:hover::before {
+  transform: scale(1);
+}
+
+/* SECTION CONTACT */
+.contact-info {
+  list-style: none;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  transition: var(--transition-base);
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: var(--transition-bounce);
+}
+
+.contact-item:hover .contact-icon {
+  background: var(--eduplus-accent);
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* SECTION RESEAUX SOCIAUX */
+.social-container {
+  margin-top: 2rem;
+}
+
+.social-intro {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.social-intro::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--eduplus-accent);
+  animation: pulse 2s infinite;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.2rem;
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-accent);
+  z-index: -1;
+  opacity: 0;
+  transition: var(--transition-base);
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+/* BANDEAU D'INFORMATIONS */
+.info-band {
+  background: var(--eduplus-dark);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-scroller {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: scroll 30s linear infinite;
+}
+
+.info-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3rem;
+  color: white;
+  font-weight: 500;
+}
+
+.info-icon {
+  margin-right: 1rem;
+  color: var(--eduplus-accent);
+  font-size: 1.2rem;
+}
+
+/* COPYRIGHT */
+.copyright {
+  text-align: center;
+  padding: 2rem 0;
+  background: var(--eduplus-dark);
+  position: relative;
+}
+
+.copyright::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-accent);
+}
+
+.copyright-text {
+  position: relative;
+  display: inline-block;
+}
+
+.copyright-text::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--eduplus-accent);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.copyright:hover .copyright-text::after {
+  transform: scaleX(1);
+}
+
+/* ANIMATIONS PERSONNALISEES */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes gradientPulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes underlineGrow {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* EFFETS RESPONSIVE */
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .info-scroller {
+    animation-duration: 20s;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 0;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .info-scroller {
+    animation-duration: 15s;
+  }
+}
+
+@media (max-width: 576px) {
+  .info-item {
+    padding: 0 1.5rem;
+  }
+  
+  .info-scroller {
+    animation-duration: 10s;
+  }
+}
+
+/* ANIMATIONS SPECIFIQUES AUX ELEMENTS */
+/* Effet vague sur le footer */
+.wave-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%232C3E50" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%232C3E50" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%232C3E50"/></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: wave 15s linear infinite;
+  z-index: -1;
+}
+
+@keyframes wave {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.8); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+
+/* Effet particules */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) translateX(200px);
+    opacity: 0;
+  }
+}
+/*mmmmmmmmmmmmmmm*/
+/* GENERATEUR DE PARTICULES DYNAMIQUE */
+/* Ce code JS devrait être ajouté séparément */
+
+
+
+/*mmmmmmmmmmmmmmmmmmmm*/
+/* EFFET DE LUMIERE DYNAMIQUE */
+.light-spot {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: moveLight 15s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes moveLight {
+  0% { transform: translate(10%, 10%); }
+  25% { transform: translate(80%, 30%); }
+  50% { transform: translate(40%, 70%); }
+  75% { transform: translate(70%, 20%); }
+  100% { transform: translate(20%, 60%); }
+}
+
+/* EFFET DE SURVOL 3D */
+.footer-section-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.footer-section-3d:hover {
+  transform: rotateY(5deg) rotateX(2deg) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* ANIMATION DE TEXTE */
+.text-gradient {
+  background: linear-gradient(90deg, var(--eduplus-accent), var(--eduplus-secondary), var(--eduplus-accent));
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientText 3s linear infinite;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}

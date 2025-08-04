@@ -1,0 +1,236 @@
+/* Variables */
+:root {
+    --primary: #2C3E50;
+    --secondary: #E74C3C;
+    --accent: #3498DB;
+    --light: #ECF0F1;
+    --dark: #1A252F;
+    --gray: #95a5a6;
+    --light-gray: #f8f9fa;
+    --transition: all 0.3s ease;
+}
+
+/* Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: var(--primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.documents-container {
+    max-width: 1400px;
+    margin: 100px auto 40px;
+    padding: 0 30px;
+}
+
+/* En-tête de page */
+.page-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.page-header h1 i {
+    color: var(--accent);
+}
+
+.breadcrumb {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.breadcrumb .active {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Grille de documents */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+/* Section de documents */
+.document-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.document-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, var(--primary), #1a252f);
+    color: white;
+}
+
+.section-header h2 {
+    font-size: 1.3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header h2 i {
+    font-size: 1.1rem;
+}
+
+.badge {
+    background: var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Liste de documents */
+.documents-list {
+    padding: 20px;
+}
+
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--gray);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    margin: 0;
+}
+
+/* Carte de document */
+.document-card {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.document-card:last-child {
+    margin-bottom: 0;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--primary);
+    flex: 1;
+}
+
+.doc-date {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-left: 15px;
+}
+
+.card-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.card-meta i {
+    margin-right: 5px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.preview-btn {
+    background: white;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+.preview-btn:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.download-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.download-btn:hover {
+    background: #34495e;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .documents-container {
+        margin-top: 80px;
+        padding: 0 15px;
+    }
+    
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        justify-content: center;
+    }
+}
